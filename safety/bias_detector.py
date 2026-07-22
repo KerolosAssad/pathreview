@@ -1,11 +1,19 @@
 """Bias detection in generated feedback."""
 
 import re
+
 import structlog
 
 logger = structlog.get_logger()
 
 
+# Reproduces #151: DISMISSIVE_PATTERNS and DEMOGRAPHIC_PATTERNS require
+# near-exact phrase sequences and miss natural phrasings of the same bias.
+# e.g. detect_bias("The candidate only attended a bootcamp, so this project
+# lacks the rigor of a formal CS education") returns (False, "") instead of
+# being flagged. Confirmed via `pytest tests/unit/test_bias_detector.py -v`:
+# 9 related failures, including test_dismissive_bootcamp_language_detected
+# and test_demographic_assumption_age_detected.
 class BiasDetector:
     """Detect biased language in feedback."""
 
