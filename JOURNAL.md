@@ -32,3 +32,17 @@ interesting topics to explore further in future projects.
 **Setup confirmation:** [x] App runs locally at localhost:5173
 
 **Cohort ledger:** [x] Issue added to cohort ledger
+
+## Week 8 — Reproduction & solution planning
+
+**Reproduction commit link:** https://github.com/KerolosAssad/pathreview/commit/483621f
+
+**Reproduction summary:**
+I ran the exact snippet from the issue description directly in Python and got the same output, (False, ""), confirming the described bug. I then ran the scoped test file (tests/unit/test_bias_detector.py) and the full make test-unit suite, both confirming the same 9 failing tests noted in the issue.
+
+**PLAN.md link:** https://github.com/KerolosAssad/pathreview/blob/fix/151-bias-detector-narrow-patterns/PLAN.md
+
+**Walkthrough video (recommended):** [Loom walkthrough](https://www.loom.com/share/3cbb505daa5d4c10b130428ccba47223)
+
+**Blockers or open questions:**
+No blockers, but some of the original designers' intentions are unknown, and the exact way certain patterns should be structured to fix the issue is still uncertain.
