@@ -29,7 +29,7 @@ class BiasDetector:
     # Demographic assumptions (about age, background, identity)
     DEMOGRAPHIC_PATTERNS = [
         r"(?:young|old|aged)\s+(?:person|developers?|programmers?)\s+(?:can't|cannot|won't|will\s+not)",
-        r"(?:person\s+from|coming\s+from)\s+(?:poor|rich|working[\s-]?class)",
+        r"(?:person\s+from|coming\s+from|developers?\s+from|programmers?\s+from)\s+(?:poor|rich|working[\s-]?class)",
         r"(?:immigrant|international|foreign)\s+developers?.*(?:can't|cannot|won't|struggle)",
     ]
 
