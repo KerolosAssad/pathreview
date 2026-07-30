@@ -25,7 +25,7 @@ class BiasDetector:
         r"(?:self-taught|bootcamp)(?:\s+developers?|\s+programmers?|\s+graduates?)?\s+(?:is|are)\s+(?:not|never)\s+(?:equal|comparable)\s+to\s+(?:university|traditional|formal)",
         r"(?:bootcamp|coding\s+bootcamp)\s+(?:graduates?|developers?|programmers?)\s+(?:can't|cannot)\s+(?:write|handle)\s+(?:production\s+|enterprise\s+)?(?:code|systems)",
         r"(?:bootcamp|self-taught|online\s+course)\s+(?:attendance|education|training)\s+means\s+(?:insufficient|inadequate|lacking|lacks)",
-        r"(?:bootcamp).*(?:lacks|lacking)\s+(?:the\s+)?(?:rigor)",
+        r"(?:bootcamp)[^.!?]*(?:lacks|lacking)\s+(?:the\s+)?(?:rigor)",
     ]
 
     # Demographic assumptions (about age, background, identity)
@@ -33,7 +33,7 @@ class BiasDetector:
         r"(?:young|old|aged)\s+(?:person|developers?|programmers?)\s+(?:can't|cannot|won't|will\s+not)",
         r"(?:person\s+from|coming\s+from|developers?\s+from|programmers?\s+from)\s+(?:poor|rich|working[\s-]?class)",
         r"(?:immigrant|international|foreign)\s+developers?.*(?:can't|cannot|won't|struggle)",
-        r"(?:their|his|her)\s+age.*(?:can't|cannot|won't|will\s+not)",
+        r"(?:their|his|her)\s+age[^.!?]*(?:can't|cannot|won't|will\s+not)",
     ]
 
     @staticmethod
