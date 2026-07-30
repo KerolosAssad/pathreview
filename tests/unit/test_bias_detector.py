@@ -299,3 +299,28 @@ class TestBiasDetector:
 
         assert is_biased is True
         assert "demographic" in reason.lower()
+
+    # Edge-case tests for the clause-split patterns above: the '.*' wildcard
+    # bridging trigger and claim was unbounded and could cross sentence
+    # boundaries into unrelated text.
+    def test_unrelated_documentation_rigor_not_flagged(self) -> None:
+        """Test that unrelated mentions across separate sentences are not flagged."""
+        text = (
+            "The candidate did a bootcamp. Separately, the "
+            "documentation lacks rigor and needs work."
+        )
+
+        is_biased, reason = BiasDetector.detect_bias(text)
+
+        assert is_biased is False
+
+    def test_distant_unrelated_system_requirement_not_flagged(self) -> None:
+        """Test that a distant, unrelated negative verb is not flagged."""
+        text = (
+            "Their age is listed as 34 on the application. The system "
+            "won't process it without a signature."
+        )
+
+        is_biased, reason = BiasDetector.detect_bias(text)
+
+        assert is_biased is False
