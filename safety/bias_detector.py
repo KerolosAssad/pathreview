@@ -22,7 +22,7 @@ class BiasDetector:
         r"(?:bootcamp|self-taught|online\s+course)\s+(?:education|training)\s+is\s+(?:insufficient|inadequate|lacks)",
         r"(?:bootcamp|self-taught)\s+(?:graduates?|developers?|programmers?|education)\s+(?:lack|lacks|missing)\s+(?:rigor|fundamentals|proper\s+training)",
         r"(?:bootcamp|coding\s+bootcamp)\s+(?:doesn't|does\s+not)\s+prepare\s+(?:you|developers?)",
-        r"(?:self-taught|bootcamp)\s+is\s+(?:not|never)\s+(?:equal|comparable)\s+to\s+(?:university|traditional|formal)",
+        r"(?:self-taught|bootcamp)(?:\s+developers?|\s+programmers?|\s+graduates?)?\s+(?:is|are)\s+(?:not|never)\s+(?:equal|comparable)\s+to\s+(?:university|traditional|formal)",
         r"(?:bootcamp|coding\s+bootcamp)\s+(?:graduates?|developers?|programmers?)\s+(?:can't|cannot)\s+(?:write|handle)\s+(?:production\s+|enterprise\s+)?(?:code|systems)",
     ]
 
