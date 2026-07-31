@@ -46,3 +46,34 @@ I ran the exact snippet from the issue description directly in Python and got th
 
 **Blockers or open questions:**
 No blockers, but some of the original designers' intentions are unknown, and the exact way certain patterns should be structured to fix the issue is still uncertain.
+
+## Week 9 — Solution building & PR submission
+
+### Check-in 1 (mid-week)
+
+**Current progress:**
+Completed all sub-tasks from PLAN.md for issue #151. Widened DISMISSIVE_PATTERNS and DEMOGRAPHIC_PATTERNS to cover the 9 originally-failing tests (noun/verb form gaps, missing plural forms, word-order variation in the self-taught/university comparison, and a new causal "means" construction). Also fixed two clause-split phrasings quoted directly in the issue's own reproduction steps ("bootcamp... so this project lacks..." and "their age... they likely cannot..."), which weren't covered by the 9 tests alone. While testing the clause-split fix with adversarial inputs, found and fixed a real false-positive risk (an unbounded regex wildcard that could bridge across unrelated sentences), backed by new edge-case tests. Updated PLAN.md's Risks & Unknowns section to document what was confirmed during implementation, including a negation/reported-speech false-positive limitation that was deliberately left unaddressed (documented as a known limitation for the PR).
+
+**Next steps:**
+Push the branch, open a draft PR with the template filled in, self-review it, and finalize Check-in 2 with the PR link.
+
+**Blockers:**
+None.
+
+---
+
+### Check-in 2 (end of week)
+
+**PR link:** [link to your submitted pull request]
+
+**Branch:** fix/151-bias-detector-narrow-patterns
+
+**What you built:**
+[1–3 sentences summarizing what your fix does and how it works]
+
+**Tests added or updated:**
+[Which test files did you touch? What do they cover?]
+
+**Self-review confirmation:** [ ] make check passes  [ ] make test-unit passes
+
+**Draft PR feedback received from:** [name or Slack handle, or "none"]
