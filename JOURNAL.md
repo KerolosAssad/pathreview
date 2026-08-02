@@ -64,16 +64,18 @@ None.
 
 ### Check-in 2 (end of week)
 
-**PR link:** [link to your submitted pull request]
+**PR link:** https://github.com/ascherj/pathreview/pull/466
 
 **Branch:** fix/151-bias-detector-narrow-patterns
 
 **What you built:**
-[1–3 sentences summarizing what your fix does and how it works]
+Widened the bias detector's regex patterns to catch common natural phrasings the original patterns missed, including plural forms, alternate verb tenses, and bias split across two clauses (e.g. "attended a bootcamp, so this project lacks the rigor..."). All 9 originally-failing tests now pass, plus two additional phrasings quoted directly in the issue that weren't covered by those 9 tests, and a false-positive risk found during adversarial testing was fixed by bounding a regex wildcard. While reviewing the file, also noticed the immigrant/international/foreign pattern is missing "programmers?" (present in every other pattern's noun alternation). Left unfixed: not mentioned in the issue, and no failing test proves it's a real gap.
 
 **Tests added or updated:**
-[Which test files did you touch? What do they cover?]
+`tests/unit/test_bias_detector.py` — added 4 new tests: `test_clause_split_dismissive_detected` and `test_clause_split_demographic_detected` cover the two clause-split phrasings quoted in the issue's reproduction steps; `test_unrelated_documentation_rigor_not_flagged` and `test_distant_unrelated_system_requirement_not_flagged` are edge-case tests confirming an unrelated trigger and claim in separate sentences no longer incorrectly bridge and get flagged.
 
-**Self-review confirmation:** [ ] make check passes  [ ] make test-unit passes
+**Self-review confirmation:** [x] make check passes  [x] make test-unit passes
 
-**Draft PR feedback received from:** [name or Slack handle, or "none"]
+(Introduces no new failures beyond a pre-existing baseline documented in the PR's Notes for Reviewers: 181 pre-existing lint/type errors, 44 pre-existing test failures, none caused by this change.)
+
+**Draft PR feedback received from:** self-reviewed
