@@ -79,3 +79,34 @@ Widened the bias detector's regex patterns to catch common natural phrasings the
 (Introduces no new failures beyond a pre-existing baseline documented in the PR's Notes for Reviewers: 181 pre-existing lint/type errors, 44 pre-existing test failures, none caused by this change.)
 
 **Draft PR feedback received from:** self-reviewed
+
+## Week 10 — Iteration & reflection
+
+### Reviewer feedback
+
+**Feedback received:** [ ] Yes  [x] No — still awaiting review
+
+**Summary of feedback:**
+No PR review feature exists this term. No feedback was requested or received.
+
+**How you responded:**
+N/A – no PR feedback to respond to.
+
+---
+
+### Reflection
+
+**What was harder than you expected?**
+Staying precisely scoped to the issue was harder than I expected. It was easy to notice adjacent things worth fixing (a missing noun form in an unrelated pattern, a negation edge case, cross-sentence false positives) and I had to repeatedly decide, deliberately, whether each one was actually in scope or just something I happened to notice while reading the file. Working around pre-existing lint and type-check failures in the codebase was also harder than expected: distinguishing what was genuinely mine to fix from what predated my branch took real care, and figuring out when it was appropriate to bypass pre-commit hooks versus when I should stop and investigate further wasn't obvious at first.
+
+**What did you learn about working in a large codebase?**
+The biggest difference from building my own project is the ambiguity around original intent. When I write my own code, I know why I made a design choice. In someone else's codebase, I had to infer intent from existing patterns, conventions, and test coverage, and accept that I'd never be fully certain why the original author drew the lines they did (e.g., why one demographic pattern includes "programmers?" and another doesn't). Working within that uncertainty, rather than resolving it, was a real adjustment.
+
+**How did AI tools help, and where did they fall short?**
+AI assistance was most useful for keeping me from overthinking small decisions, for surfacing current conventions and standards through research, and for helping me navigate an unfamiliar problem domain (regex-based bias detection) I hadn't worked with before. It also helped me structure my thinking and stay organized across a long, multi-step process. Where it fell short: it sometimes settled into confirming its own earlier suggestions rather than critically re-examining them, which I had to actively push back on and re-verify myself. It also missed edge cases on its own initiative; the adversarial false-positive tests only happened because I asked for them, not because the AI proactively suggested stress-testing the new patterns before I raised it.
+
+**What would you do differently if you started over?**
+I'd ask more questions earlier, particularly about how to handle pre-existing repository issues (broken linting, environment setup quirks) and when using `--no-verify` is appropriate versus when it signals a deeper problem worth investigating. I'd also commit and document more frequently and in smaller increments.
+
+**What are you most proud of from this module?**
+I'm most proud of the planning work in PLAN.md and how closely it held up: the risks I predicted before writing any code (negation, overcorrection, pattern maintainability) turned out to be real, and having thought about them in advance meant I recognized them quickly when they actually surfaced during testing, rather than being caught off guard. I'm also proud of catching the false-positive risk in my own new patterns before submitting, through deliberate adversarial testing rather than waiting for a reviewer to find it. Finally, this is my first clean, fully-documented PR in a codebase I didn't build, and completing it end-to-end has made me genuinely more comfortable with the idea of contributing to open source going forward.
